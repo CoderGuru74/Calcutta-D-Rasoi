@@ -1,33 +1,62 @@
-# Dependencies
+# ===========================
+# Node & Vite Build Files
+# ===========================
 node_modules/
 dist/
 .vite/
 .env
+.env.local
+.env.development.local
+.env.production.local
 
+# ===========================
 # Logs
+# ===========================
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Editor
+# ===========================
+# IDE & System Files
+# ===========================
 .vscode/
 .idea/
-
-# OS
 .DS_Store
 Thumbs.db
 
-# Build and cache
-*.local
+# ===========================
+# Git & Cache
+# ===========================
+*.lock
+.cache/
 *.tmp
+*.swp
 
-# Videos and large media (don’t push to GitHub)
-*.mp4
-*.mov
-*.avi
-*.mkv
-*.webm
-*.zip
-*.rar
-*.7z
-*.exe
+# ===========================
+# Public Media (large files)
+# ===========================
+# These are kept locally, not pushed to GitHub
+public/*.mp4
+public/*.mov
+public/*.avi
+public/*.mkv
+public/*.webm
+public/*.zip
+public/*.rar
+public/*.7z
+public/*.jpg
+public/*.jpeg
+public/*.png
+public/*.heic
+public/*.webp
+
+# Keep only lightweight assets
+!public/logo.png
+!public/favicon.ico
+
+# ===========================
+# Miscellaneous
+# ===========================
+*.bak
+*.old
