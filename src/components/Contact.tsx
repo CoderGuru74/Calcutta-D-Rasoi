@@ -1,5 +1,5 @@
-import { Mode } from '../types';
-import { Mail, Phone, Instagram, Facebook } from 'lucide-react';
+import { Mode } from "../types";
+import { Mail, Phone, Instagram, Facebook } from "lucide-react";
 
 interface ContactProps {
   mode: Mode;
@@ -7,15 +7,15 @@ interface ContactProps {
 
 export default function Contact({ mode }: ContactProps) {
   const backgroundStyle =
-    mode === 'cafe'
+    mode === "cafe"
       ? {
-          backgroundImage: "url('/1234.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          backgroundImage: "url('/1234.jpg')", // ✅ points to public folder
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }
       : {
-          background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
+          background: "linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)",
         };
 
   return (
@@ -23,28 +23,28 @@ export default function Contact({ mode }: ContactProps) {
       className="relative py-24 px-4 transition-colors duration-700"
       style={backgroundStyle}
     >
-      {/* Overlay for readability */}
+      {/* ✅ Transparent overlay for text visibility */}
       <div
         className="absolute inset-0"
         style={{
           backgroundColor:
-            mode === 'cafe'
-              ? 'rgba(255, 255, 255, 0.75)'
-              : 'rgba(0, 0, 0, 0.7)',
+            mode === "cafe"
+              ? "rgba(255, 255, 255, 0.75)"
+              : "rgba(0, 0, 0, 0.7)",
         }}
       ></div>
 
       <div className="relative max-w-4xl mx-auto text-center z-10">
         <h2
           className="font-serif text-5xl md:text-6xl font-bold mb-6 transition-colors duration-700"
-          style={{ color: mode === 'cafe' ? '#D84797' : '#FFB20F' }}
+          style={{ color: mode === "cafe" ? "#D84797" : "#FFB20F" }}
         >
           Book a Table / Contact Us
         </h2>
 
         <p
           className="text-lg mb-12 transition-colors duration-700"
-          style={{ color: mode === 'cafe' ? '#5a3a4a' : '#b0b0b0' }}
+          style={{ color: mode === "cafe" ? "#5a3a4a" : "#b0b0b0" }}
         >
           We'd love to hear from you. Reach out for reservations or inquiries.
         </p>
@@ -54,12 +54,12 @@ export default function Contact({ mode }: ContactProps) {
             href="mailto:calcutta.d.rasoicafe@gmail.com"
             className="flex items-center justify-center gap-3 py-5 px-8 rounded-full transition-all duration-300 hover:scale-105"
             style={{
-              backgroundColor: mode === 'cafe' ? '#DD9AC2' : '#FFB20F',
-              color: mode === 'cafe' ? '#ffffff' : '#1a1a1a',
+              backgroundColor: mode === "cafe" ? "#DD9AC2" : "#FFB20F",
+              color: mode === "cafe" ? "#ffffff" : "#1a1a1a",
               boxShadow:
-                mode === 'cafe'
-                  ? '0 10px 30px rgba(221, 154, 194, 0.3)'
-                  : '0 10px 30px rgba(255, 178, 15, 0.3)',
+                mode === "cafe"
+                  ? "0 10px 30px rgba(221, 154, 194, 0.3)"
+                  : "0 10px 30px rgba(255, 178, 15, 0.3)",
             }}
           >
             <Mail className="w-5 h-5" />
@@ -70,12 +70,12 @@ export default function Contact({ mode }: ContactProps) {
             href="tel:+919942498114"
             className="flex items-center justify-center gap-3 py-5 px-8 rounded-full transition-all duration-300 hover:scale-105"
             style={{
-              backgroundColor: mode === 'cafe' ? '#DD9AC2' : '#FFB20F',
-              color: mode === 'cafe' ? '#ffffff' : '#1a1a1a',
+              backgroundColor: mode === "cafe" ? "#DD9AC2" : "#FFB20F",
+              color: mode === "cafe" ? "#ffffff" : "#1a1a1a",
               boxShadow:
-                mode === 'cafe'
-                  ? '0 10px 30px rgba(221, 154, 194, 0.3)'
-                  : '0 10px 30px rgba(255, 178, 15, 0.3)',
+                mode === "cafe"
+                  ? "0 10px 30px rgba(221, 154, 194, 0.3)"
+                  : "0 10px 30px rgba(255, 178, 15, 0.3)",
             }}
           >
             <Phone className="w-5 h-5" />
@@ -89,10 +89,10 @@ export default function Contact({ mode }: ContactProps) {
             className="p-4 rounded-full transition-all duration-300 hover:scale-110"
             style={{
               backgroundColor:
-                mode === 'cafe'
-                  ? 'rgba(221, 154, 194, 0.2)'
-                  : 'rgba(255, 178, 15, 0.2)',
-              color: mode === 'cafe' ? '#D84797' : '#FFB20F',
+                mode === "cafe"
+                  ? "rgba(221, 154, 194, 0.2)"
+                  : "rgba(255, 178, 15, 0.2)",
+              color: mode === "cafe" ? "#D84797" : "#FFB20F",
             }}
           >
             <Instagram className="w-6 h-6" />
@@ -102,10 +102,10 @@ export default function Contact({ mode }: ContactProps) {
             className="p-4 rounded-full transition-all duration-300 hover:scale-110"
             style={{
               backgroundColor:
-                mode === 'cafe'
-                  ? 'rgba(221, 154, 194, 0.2)'
-                  : 'rgba(255, 178, 15, 0.2)',
-              color: mode === 'cafe' ? '#D84797' : '#FFB20F',
+                mode === "cafe"
+                  ? "rgba(221, 154, 194, 0.2)"
+                  : "rgba(255, 178, 15, 0.2)",
+              color: mode === "cafe" ? "#D84797" : "#FFB20F",
             }}
           >
             <Facebook className="w-6 h-6" />
