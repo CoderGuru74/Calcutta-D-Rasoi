@@ -6,16 +6,35 @@ interface ContactProps {
 }
 
 export default function Contact({ mode }: ContactProps) {
+  const backgroundStyle =
+    mode === 'cafe'
+      ? {
+          backgroundImage: "url('/1234.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }
+      : {
+          background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
+        };
+
   return (
     <section
-      className="py-24 px-4 transition-colors duration-700"
-      style={{
-        background: mode === 'cafe'
-          ? 'linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%)'
-          : 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)'
-      }}
+      className="relative py-24 px-4 transition-colors duration-700"
+      style={backgroundStyle}
     >
-      <div className="max-w-4xl mx-auto text-center">
+      {/* Overlay for readability */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundColor:
+            mode === 'cafe'
+              ? 'rgba(255, 255, 255, 0.75)'
+              : 'rgba(0, 0, 0, 0.7)',
+        }}
+      ></div>
+
+      <div className="relative max-w-4xl mx-auto text-center z-10">
         <h2
           className="font-serif text-5xl md:text-6xl font-bold mb-6 transition-colors duration-700"
           style={{ color: mode === 'cafe' ? '#D84797' : '#FFB20F' }}
@@ -37,9 +56,10 @@ export default function Contact({ mode }: ContactProps) {
             style={{
               backgroundColor: mode === 'cafe' ? '#DD9AC2' : '#FFB20F',
               color: mode === 'cafe' ? '#ffffff' : '#1a1a1a',
-              boxShadow: mode === 'cafe'
-                ? '0 10px 30px rgba(221, 154, 194, 0.3)'
-                : '0 10px 30px rgba(255, 178, 15, 0.3)'
+              boxShadow:
+                mode === 'cafe'
+                  ? '0 10px 30px rgba(221, 154, 194, 0.3)'
+                  : '0 10px 30px rgba(255, 178, 15, 0.3)',
             }}
           >
             <Mail className="w-5 h-5" />
@@ -52,9 +72,10 @@ export default function Contact({ mode }: ContactProps) {
             style={{
               backgroundColor: mode === 'cafe' ? '#DD9AC2' : '#FFB20F',
               color: mode === 'cafe' ? '#ffffff' : '#1a1a1a',
-              boxShadow: mode === 'cafe'
-                ? '0 10px 30px rgba(221, 154, 194, 0.3)'
-                : '0 10px 30px rgba(255, 178, 15, 0.3)'
+              boxShadow:
+                mode === 'cafe'
+                  ? '0 10px 30px rgba(221, 154, 194, 0.3)'
+                  : '0 10px 30px rgba(255, 178, 15, 0.3)',
             }}
           >
             <Phone className="w-5 h-5" />
@@ -67,10 +88,11 @@ export default function Contact({ mode }: ContactProps) {
             href="#"
             className="p-4 rounded-full transition-all duration-300 hover:scale-110"
             style={{
-              backgroundColor: mode === 'cafe'
-                ? 'rgba(221, 154, 194, 0.2)'
-                : 'rgba(255, 178, 15, 0.2)',
-              color: mode === 'cafe' ? '#D84797' : '#FFB20F'
+              backgroundColor:
+                mode === 'cafe'
+                  ? 'rgba(221, 154, 194, 0.2)'
+                  : 'rgba(255, 178, 15, 0.2)',
+              color: mode === 'cafe' ? '#D84797' : '#FFB20F',
             }}
           >
             <Instagram className="w-6 h-6" />
@@ -79,10 +101,11 @@ export default function Contact({ mode }: ContactProps) {
             href="#"
             className="p-4 rounded-full transition-all duration-300 hover:scale-110"
             style={{
-              backgroundColor: mode === 'cafe'
-                ? 'rgba(221, 154, 194, 0.2)'
-                : 'rgba(255, 178, 15, 0.2)',
-              color: mode === 'cafe' ? '#D84797' : '#FFB20F'
+              backgroundColor:
+                mode === 'cafe'
+                  ? 'rgba(221, 154, 194, 0.2)'
+                  : 'rgba(255, 178, 15, 0.2)',
+              color: mode === 'cafe' ? '#D84797' : '#FFB20F',
             }}
           >
             <Facebook className="w-6 h-6" />

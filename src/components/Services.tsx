@@ -1,97 +1,57 @@
-import React from "react";
-import { Mode } from "../types";
+import { UtensilsCrossed, ShoppingBag, GlassWater } from "lucide-react";
 
 interface ServicesProps {
-  mode: Mode;
+  mode: "cafe" | "restaurant";
 }
 
-const Services: React.FC<ServicesProps> = ({ mode }) => {
+export default function Services({ mode }: ServicesProps) {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden text-white">
-      {/* 🎥 Background only for Cafe */}
-      {mode === "cafe" ? (
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        >
-          <source src="/CO.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      ) : (
-        // 🍽 Static background for restaurant
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1920')",
-          }}
-        ></div>
-      )}
+    <section
+      id="services"
+      className="py-20 text-center relative z-10 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/10758468.png')",
+      }}
+    >
+      <div className="absolute inset-0 bg-black/40" /> {/* Dark overlay for readability */}
 
-      {/* 🌑 Overlay for readability */}
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
+      <div className="relative z-10">
+        <h2 className="text-4xl font-bold mb-12 text-white">
+          Our {mode === "cafe" ? "Cafe" : "Restaurant"} Services
+        </h2>
 
-      {/* 💡 Services Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
-        <h1
-          className="text-6xl font-serif font-bold mb-6 drop-shadow-lg"
-          style={{ color: mode === "cafe" ? "#DD9AC2" : "#FFB20F" }}
-        >
-          Our Services
-        </h1>
-        <p className="max-w-3xl text-lg text-gray-200 mb-12">
-          Discover the essence of hospitality and flavor — from freshly brewed
-          coffee to traditional Kolkata delicacies, we bring you an experience
-          that blends culture, comfort, and taste.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-          {/* Example service cards */}
-          <div className="bg-white/10 p-8 rounded-2xl backdrop-blur-md hover:scale-105 transition-transform duration-300">
-            <h2
-              className="text-2xl font-semibold mb-4"
-              style={{ color: mode === "cafe" ? "#DD9AC2" : "#FFB20F" }}
-            >
-              Café Specials
-            </h2>
-            <p className="text-gray-200">
-              Enjoy handcrafted coffee, teas, and beverages made from the finest
-              ingredients to kickstart your day.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
+          {/* 🩷 Dine In */}
+          <div className="bg-pink-500 bg-opacity-80 rounded-2xl shadow-lg p-8 hover:scale-105 transition-transform">
+            <UtensilsCrossed className="w-12 h-12 mx-auto text-white mb-4" />
+            <h3 className="text-2xl font-semibold text-white mb-2">Dine In</h3>
+            <p className="text-white">
+              Enjoy our cozy ambiance and freshly prepared dishes served to your
+              table.
             </p>
           </div>
 
-          <div className="bg-white/10 p-8 rounded-2xl backdrop-blur-md hover:scale-105 transition-transform duration-300">
-            <h2
-              className="text-2xl font-semibold mb-4"
-              style={{ color: mode === "cafe" ? "#DD9AC2" : "#FFB20F" }}
-            >
-              Authentic Cuisine
-            </h2>
-            <p className="text-gray-200">
-              Taste Kolkata’s charm with dishes that capture tradition, spice,
-              and flavor in every bite.
+          {/* 💛 Takeaway */}
+          <div className="bg-yellow-400 bg-opacity-80 rounded-2xl shadow-lg p-8 hover:scale-105 transition-transform">
+            <ShoppingBag className="w-12 h-12 mx-auto text-white mb-4" />
+            <h3 className="text-2xl font-semibold text-white mb-2">Takeaway</h3>
+            <p className="text-white">
+              Grab your favorite meals on the go — hot, fast, and perfectly packed
+              for you.
             </p>
           </div>
 
-          <div className="bg-white/10 p-8 rounded-2xl backdrop-blur-md hover:scale-105 transition-transform duration-300">
-            <h2
-              className="text-2xl font-semibold mb-4"
-              style={{ color: mode === "cafe" ? "#DD9AC2" : "#FFB20F" }}
-            >
-              Event Catering
-            </h2>
-            <p className="text-gray-200">
-              Let us bring our culinary excellence to your celebrations with
-              catering that delights every guest.
+          {/* 🩷 Catering */}
+          <div className="bg-pink-500 bg-opacity-80 rounded-2xl shadow-lg p-8 hover:scale-105 transition-transform">
+            <GlassWater className="w-12 h-12 mx-auto text-white mb-4" />
+            <h3 className="text-2xl font-semibold text-white mb-2">Catering</h3>
+            <p className="text-white">
+              Celebrate with our professional catering services for parties,
+              events, and gatherings.
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Services;
+}
