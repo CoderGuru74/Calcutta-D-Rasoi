@@ -7,14 +7,22 @@ interface AnimatedBackgroundProps {
 
 const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ mode }) => {
   return (
-    <video
-      className="fixed top-0 left-0 w-full h-full object-cover z-[-1]"
-      src="/coffee.mp4"
-      autoPlay
-      loop
-      muted
-      playsInline
-    />
+    <div className="absolute inset-0 -z-10">
+      {mode === "cafe" ? (
+        // ☕ Static background image for Café
+        <img
+          src="/download.jpg"
+          alt="Café background"
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        // 🍽️ Optional: keep restaurant background as gradient
+        <div className="w-full h-full bg-gradient-to-b from-[#FFB20F] to-[#D84797]" />
+      )}
+
+      {/* Optional dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/50" />
+    </div>
   );
 };
 
