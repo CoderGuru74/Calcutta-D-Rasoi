@@ -4,20 +4,19 @@ import cors from "cors";
 import twilio from "twilio";
 import dotenv from "dotenv";
 
-dotenv.config(); // ✅ Load .env file
+dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-// ✅ Load Twilio credentials from environment variables
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+// ✅ Load Twilio credentials from .env
+const accountSid = process.env.TWILIO_SID;
+const authToken = process.env.TWILIO_AUTH;
 const client = twilio(accountSid, authToken);
 
 app.use(cors());
 app.use(express.json());
 
-// 📩 WhatsApp send endpoint
 app.post("/send-whatsapp", async (req, res) => {
   const { name, phone, date, time, guests } = req.body;
 
