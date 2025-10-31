@@ -30,7 +30,8 @@ const BookTableForm: React.FC = () => {
 
     // ✅ Send WhatsApp using your backend
     try {
-      const response = await fetch("http://localhost:5000/send-whatsapp", {
+      const response = await fetch("https://calcutta-d-rasoi.vercel.app/send-whatsapp", {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phone, date, time, guests }),
