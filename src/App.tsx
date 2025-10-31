@@ -7,10 +7,11 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Menu from "./components/Menu";
 import Gallery from "./components/Gallery";
-import PartyOrders from "./components/PartyOrders";
+// import PartyOrders from "./components/PartyOrders"; // ❌ Removed
 import OrderModal from "./components/OrderModal";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import BookTableForm from "./components/BookTableForm"; // ✅ Keep booking form
 
 function App() {
   const [mode, setMode] = useState<Mode>("cafe");
@@ -29,13 +30,13 @@ function App() {
     <div
       className="relative min-h-screen overflow-hidden bg-cover bg-center"
       style={{
-        backgroundImage: "url('/10758468.png')", // 👈 the only background image
+        backgroundImage: "url('/10758468.png')",
       }}
     >
-      {/* Dark overlay for readability */}
+      {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/40 z-0" />
 
-      {/* Main Content */}
+      {/* Page Content */}
       <div className="relative z-10">
         <ModeToggle mode={mode} onToggle={toggleMode} />
         <Hero mode={mode} onExploreMenu={handleExploreMenu} />
@@ -43,7 +44,13 @@ function App() {
         <Services mode={mode} />
         <Menu mode={mode} items={currentMenu} onOrderClick={handleOrderClick} />
         <Gallery mode={mode} />
-        <PartyOrders mode={mode} />
+
+        {/* ✅ Removed PartyOrders section */}
+        {/* <PartyOrders mode={mode} /> */}
+
+        {/* ✅ Keep booking form */}
+        <BookTableForm />
+
         <Contact mode={mode} />
         <Footer mode={mode} />
 
